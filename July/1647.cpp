@@ -1,5 +1,10 @@
-/*
+﻿/*
 23-08-03 20:39 ~ 21:23 
+
+기억할 점
+- sort 함수로 구조체를 정렬하고 싶으면 cmp 함수를 작성해야 함
+- 구조체를 내림차순으로 정렬하고 싶으면 cmp(a, b) { return a < b } 로 작성해야 함
+- sort 함수로 배열을 정렬할 때 sort(배열의 시작, 배열의 시작 + 배열의 크기, cmp)로 호출해야 함
 */
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
@@ -35,7 +40,7 @@ struct Edge {
 };
 
 bool compare(const Edge& a, const Edge& b) { 
-	return a.weight < b.weight; //
+	return a.weight < b.weight; // 오름차순 정렬
 }
 
 int N, M;
@@ -74,7 +79,7 @@ int main(void) {
 		edgeList[i].end = b;
 		edgeList[i].weight = c;
 	}
-	sort(edgeList + 1, edgeList + M + 1, compare); //
+	sort(edgeList + 1, edgeList + M + 1, compare); // 배열을 정렬할 때 인자에 주의
 	/*for (int i = 1; i <= M; i++) {
 		printf("%d\n", edgeList[i].weight);
 	}*/
